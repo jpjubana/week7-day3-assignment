@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" genre="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="insert">
+        <h3>Insert Data</h3>
+        <form action="/insert" method="post">
+            <div class="input">
+                <label for="artist">artist</label>
+                <input type="text" id="artist" name="artist">
+            </div>
+            <div class="input">
+                <label for="genre">genre</label>
+                <input type="text" id="genre" name="genre">
+            </div>
+            <div class="input">
+                <label for="albums">albums</label>
+                <input type="text" id="albums" name="albums">
+            </div>
+            <button type="submit">INSERT</button>
+        </form>
+    </section>
+    <section class="get">
+        <h3>Get Data</h3>
+        <a href="/get-data">LOAD DATA</a>
+        <div>
+            {{#items}}
+            <article class="item">
+                <div>name: {{name}}</div>
+                <div>genre: {{genre}}</div>
+                <div>albums: {{albums}}</div>
+                <div>ID: {{_id}}</div>
+            </article>
+            {{/items}}
+        </div>
+    </section>
+    <section class="update">
+        <h3>Update Data</h3>
+        <form action="/update" method="post">
+            <div class="input">
+                <label for="id">ID</label>
+                <input type="text" id="id" name="id">
+            </div>
+            <div class="input">
+                <label for="artist">artist</label>
+                <input type="text" id="artist" name="artist">
+            </div>
+            <div class="input">
+                <label for="genre">genre</label>
+                <input type="text" id="genre" name="genre">
+            </div>
+            <div class="input">
+                <label for="albums">albums</label>
+                <input type="text" id="albums" name="albums">
+            </div>
+            <button type="submit">UPDATE</button>
+        </form>
+    </section>
+    </section>
+    <section class="delete">
+        <h3>Delete Data</h3>
+        <form action="/delete" method="post">
+            <div class="input">
+                <label for="id">ID</label>
+                <input type="text" id="id" name="id">
+            </div>
+            <button type="submit">DELETE</button>
+        </form>
+    </section>
+</body>
+
+</html>
