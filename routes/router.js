@@ -14,9 +14,6 @@ var artistSchema = new Schema({
 var artistData = mongoose.model('artistData', artistSchema);
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index');
-});
 
 router.get('/', function(req, res, next) {
     artistData.find()
@@ -41,7 +38,7 @@ router.post('/insert', function(req, res, next) {
 router.post('/update', function(req, res, next) {
     var id = req.body.id;
 
-    UserData.findById(id, function(err, doc) {
+    artistData.findById(id, function(err, doc) {
         if (err) {
             console.error('error, no entry found');
         }
@@ -50,12 +47,13 @@ router.post('/update', function(req, res, next) {
         doc.albums = req.body.albums;
         doc.save();
     })
+    console.log(req.body.artist);
     res.redirect('/');
 });
 
 router.post('/delete', function(req, res, next) {
     var id = req.body.id;
-    UserData.findByIdAndRemove(id).exec();
+    artistData.findByIdAndRemove(id).exec();
     res.redirect('/');
 });
 
